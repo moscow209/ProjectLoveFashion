@@ -4,6 +4,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 import javax.transaction.Transactional;
 
@@ -87,12 +88,19 @@ public class CustomerService implements ICustomerService {
 
 	@Transactional
 	public void createVerificationTokenForUser(CustomerEntity customer,
-			String token) {
+			String token, String type) {
 		// TODO Auto-generated method stub
 		VerificationToken myToken = new VerificationToken(customer,
-				"verify-email", token);
+				type, token);
 		tokenRepository.create(myToken);
 	}
+	
+	public VerificationToken generateNewVerificationToken(String existingToken) {
+        VerificationToken vToken = tokenRepository.findByToken(existingToken);
+        vToken.updateToken(UUID.randomUUID().toString());
+        tokenRepository.update(vToken);
+        return vToken;
+    }
 
 	@Transactional
 	public VerificationToken getVerificationToken(String verificationToken) {
@@ -137,11 +145,13 @@ public class CustomerService implements ICustomerService {
 				defaultBilling, defaultShipping);
 	}
 
+	@Transactional
 	public void deleteCustomerAddress(Integer id) {
 		// TODO Auto-generated method stub
 		addressRepository.deleteById(id);
 	}
 
+	@Transactional
 	public void updateAdress(AddressAccount address, CustomerEntity customer) {
 		// TODO Auto-generated method stub
 		CustomerAddressEntity cusAddress = new CustomerAddressEntity();
@@ -161,6 +171,18 @@ public class CustomerService implements ICustomerService {
 		if (address.isDefaultShippingAddress())
 			customer.setDefaultShipping(address.getEntityId());
 		this.update(customer);
+	}
+
+	@Transactional
+	public CustomerEntity findByEmail(String email) {
+		// TODO Auto-generated method stub
+		return customerDao.findByEmail(email);
+	}
+
+	@Transactional
+	public CustomerEntity getCustomerId(Integer id) {
+		// TODO Auto-generated method stub
+		return customerDao.get(id);
 	}
 
 }

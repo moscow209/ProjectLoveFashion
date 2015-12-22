@@ -7,13 +7,17 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.UUID;
 import java.util.regex.Pattern;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.context.MessageSource;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -35,7 +39,6 @@ import com.example.entity.VerificationToken;
 import com.example.event.OnRegistrationCompleteEvent;
 import com.example.service.ICustomerService;
 import com.example.validator.RegisterFormValidator;
-import com.sun.jndi.cosnaming.IiopUrl.Address;
 
 @Controller
 @RequestMapping(value = "/customer/account")
@@ -50,6 +53,8 @@ public class CustomerController {
 	private RegisterFormValidator validator;
 	@Autowired
 	private ApplicationEventPublisher eventPublisher;
+	@Autowired
+	private JavaMailSender mailSender;
 
 	private Map<String, String> countryList;
 
@@ -60,9 +65,10 @@ public class CustomerController {
 	private static final int PASSWORD_LENGTH = 6;
 	private Pattern pattern = Pattern.compile(EMAIL_PATTERN);
 
-	@RequestMapping(value="/", method = RequestMethod.GET)
-	public String showDashboard(Model model, HttpSession session){
-		CustomerEntity customer = (CustomerEntity) session.getAttribute("customer");
+	@RequestMapping(value = "/", method = RequestMethod.GET)
+	public String showDashboard(Model model, HttpSession session) {
+		CustomerEntity customer = (CustomerEntity) session
+				.getAttribute("customer");
 		CustomerAddressEntity defaultBilling = null;
 		CustomerAddressEntity defaultShipping = null;
 		if (customer.getDefaultBilling() != null) {
@@ -77,7 +83,7 @@ public class CustomerController {
 		model.addAttribute("defaultShipping", defaultShipping);
 		return "dashboard";
 	}
-	
+
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String showLogin() {
 		return "login";
@@ -172,13 +178,15 @@ public class CustomerController {
 	}
 
 	@RequestMapping(value = "/edit", method = RequestMethod.GET)
-	public String showUpdateAccount(Model model, HttpSession session,
+	public String showUpdateAccount(
+			Model model,
+			HttpSession session,
 			@RequestParam(value = "changepass", required = false) Integer changePassword) {
 		CustomerEntity customer = (CustomerEntity) session
 				.getAttribute("customer");
 		if (customer != null) {
 			UpdateAccount update = new UpdateAccount();
-			if(changePassword != null)
+			if (changePassword != null)
 				update.setChangePassword(true);
 			model.addAttribute("update", update);
 			return "update-account";
@@ -269,13 +277,15 @@ public class CustomerController {
 	}
 
 	@RequestMapping(value = "/address/edit/id/{entityId}", method = RequestMethod.GET)
-	public String showUpdateAddress(Model model, @PathVariable("entityId") Integer id,
-			HttpSession session) {
-		CustomerAddressEntity cusAddress = customerService.getCustomerAddress(id);
-		CustomerEntity customer = (CustomerEntity) session.getAttribute("customer");
-		if(cusAddress == null){
+	public String showUpdateAddress(Model model,
+			@PathVariable("entityId") Integer id, HttpSession session) {
+		CustomerAddressEntity cusAddress = customerService
+				.getCustomerAddress(id);
+		CustomerEntity customer = (CustomerEntity) session
+				.getAttribute("customer");
+		if (cusAddress == null) {
 			return "edit-address";
-		} else{
+		} else {
 			AddressAccount address = new AddressAccount();
 			address.setEntityId(cusAddress.getEntityId());
 			address.setFirstName(cusAddress.getFirstname());
@@ -297,15 +307,16 @@ public class CustomerController {
 			return "edit-address";
 		}
 	}
-	
+
 	@RequestMapping(value = "/address/edit/id/{entityId}", method = RequestMethod.POST)
-	public String updateAddress(@ModelAttribute("address") @Validated AddressAccount address,
+	public String updateAddress(
+			@ModelAttribute("address") @Validated AddressAccount address,
 			Model model, HttpSession session, BindingResult result) {
 		if (result.hasErrors()) {
 			return "update-address";
 		} else {
 			CustomerEntity customer = (CustomerEntity) session
-				.getAttribute("customer");
+					.getAttribute("customer");
 			address.setRegion(regionList.get(address.getRegionId()));
 			address.setCountry(countryList.get(address.getCountryId()));
 			customerService.updateAdress(address, customer);
@@ -313,14 +324,110 @@ public class CustomerController {
 		model.addAttribute("message_address", "Cap nhat thanh cong");
 		return "address";
 	}
-	
+
 	@RequestMapping(value = "/address/delete/id/{entityId}", method = RequestMethod.GET)
-	public String deleteAddress(Model model, @PathVariable("entityId") Integer id) {
-		if(id == null){
+	public String deleteAddress(Model model,
+			@PathVariable("entityId") Integer id) {
+		if (id == null) {
 			return "address";
 		}
 		customerService.deleteCustomerAddress(id);
 		return "address";
+	}
+
+	@RequestMapping(value = "/forgotpassword", method = RequestMethod.GET)
+	public String showForgotPassword() {
+		return "forgot-password";
+	}
+
+	@RequestMapping(value = "/forgotpassword", method = RequestMethod.POST)
+	public String forgotPassword(@RequestParam("email") String customerEmail,
+			HttpServletRequest request) {
+		CustomerEntity customer = customerService.findByEmail(customerEmail);
+		if (customer == null) {
+			return "forgot-password";
+		}
+		String token = UUID.randomUUID().toString();
+		customerService.createVerificationTokenForUser(customer, token,
+				"reset-pass");
+		String appUrl = "http://" + request.getServerName() + ":"
+				+ request.getServerPort() + request.getContextPath();
+		SimpleMailMessage email = constructResetTokenEmail(appUrl,
+				request.getLocale(), token, customer);
+		mailSender.send(email);
+		return "login";
+	}
+
+	private SimpleMailMessage constructResetTokenEmail(String contextPath,
+			Locale locale, String token, CustomerEntity user) {
+		String url = contextPath + "/user/changePassword?id="
+				+ user.getEntityId() + "&token=" + token;
+		String message = "test ";
+		SimpleMailMessage email = new SimpleMailMessage();
+		email.setTo(user.getEmail());
+		email.setSubject("Reset Password");
+		email.setText(message + " rn" + url);
+		return email;
+	}
+
+	@RequestMapping(value = "/changePassword", method = RequestMethod.GET)
+	public String showChangePasswordPage(Locale locale, Model model,
+			@RequestParam("id") Integer id, @RequestParam("token") String token) {
+
+		VerificationToken verificationToken = customerService
+				.getVerificationToken(token);
+		CustomerEntity customer = verificationToken.getCustomerEntity();
+		if (token == null || id == null || id != customer.getEntityId()) {
+			model.addAttribute("message", "Not token");
+			return "redirect:/bad-user.html?lang=" + locale.getLanguage();
+		}
+
+		Calendar cal = Calendar.getInstance();
+		if ((verificationToken.getExpiryDate().getTime() - cal.getTime()
+				.getTime()) <= 0) {
+			model.addAttribute("message", "Not token");
+			return "redirect:/bad-user.html?lang=" + locale.getLanguage();
+		}
+		model.addAttribute("entityId", customer.getEntityId());
+		return "update-password";
+	}
+
+	@RequestMapping(value = "/changePassword", method = RequestMethod.POST)
+	public String changePasswordPage(@RequestParam("password") String password,
+			@RequestParam("confirmPassword") String confirmPassword,
+			@RequestParam("entityId") int entityId)
+			throws NoSuchAlgorithmException {
+		CustomerEntity customer = customerService.getCustomerId(entityId);
+		customer.setPassword(customerService.hashPassword(password));
+		customerService.update(customer);
+		return "update-password";
+	}
+
+	@RequestMapping(value = "/resendEmail", method = RequestMethod.GET)
+	public String resendRegistrationToken(HttpServletRequest request,
+			@RequestParam("token") String existingToken) {
+		VerificationToken newToken = customerService
+				.generateNewVerificationToken(existingToken);
+		CustomerEntity customer = newToken.getCustomerEntity();
+		String appUrl = "http://" + request.getServerName() + ":"
+				+ request.getServerPort() + request.getContextPath();
+		SimpleMailMessage email = constructResendVerificationTokenEmail(appUrl,
+				request.getLocale(), newToken, customer);
+		mailSender.send(email);
+		return "login";
+	}
+
+	private SimpleMailMessage constructResendVerificationTokenEmail(
+			String contextPath, Locale locale, VerificationToken newToken,
+			CustomerEntity user) {
+		String confirmationUrl = contextPath + "/regitrationConfirm?token="
+				+ newToken.getToken();
+		String message = "Test: ";
+		SimpleMailMessage email = new SimpleMailMessage();
+		email.setSubject("Resend Registration Token");
+		email.setText(message + " rn" + confirmationUrl);
+		email.setTo(user.getEmail());
+		return email;
 	}
 
 }

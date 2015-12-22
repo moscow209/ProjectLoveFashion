@@ -233,7 +233,7 @@ a {
                               <button type="submit" class="button" title="Login" name="send" id="send2">
                                 <span><span>Login</span></span>
                               </button>
-                              <a href="http://demo.magentech.com/themes/sm_love_fashion/customer/account/forgotpassword/" class="f-left">Forgot
+                              <a href="/customer/account/forgotpassword/" class="f-left">Forgot
                                 Your Password?</a>
                             </div>
                           </div>

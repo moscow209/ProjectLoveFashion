@@ -70,6 +70,11 @@ public class VerificationToken implements java.io.Serializable {
 		this.expiryDate = expiryDate;
 	}
 
+	public void updateToken(final String token) {
+        this.token = token;
+        this.expiryDate = calculateExpiryDate(EXPIRATION);
+    }
+	
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
 	@Column(name = "entity_id", unique = true, nullable = false)

@@ -29,7 +29,7 @@ public class RegistrationListener implements
 	private void confirmRegistration(OnRegistrationCompleteEvent event) {
 		CustomerEntity customer = event.getCustomer();
 		String token = UUID.randomUUID().toString();
-		service.createVerificationTokenForUser(customer, token);
+		service.createVerificationTokenForUser(customer, token, "verity-email");
 		String recipientAddress = customer.getEmail();
 		String subject = "Registration Confirmation";
 		String confirmationUrl = event.getAppUrl()

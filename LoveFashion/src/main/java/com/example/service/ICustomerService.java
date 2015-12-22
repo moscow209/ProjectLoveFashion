@@ -14,13 +14,19 @@ public interface ICustomerService {
 	public CustomerEntity getCustomer(String email, String password)
 			throws NoSuchAlgorithmException;
 
+	public CustomerEntity getCustomerId(Integer id);
+	
 	public void update(CustomerEntity customer);
 
 	public CustomerEntity register(RegisterModel register)
 			throws NoSuchAlgorithmException;
 
-	public void createVerificationTokenForUser(CustomerEntity customer,
+	public CustomerEntity findByEmail(String email);
+	
+	public void createVerificationTokenForUser(CustomerEntity customer, String type,
 			String token);
+	
+	public VerificationToken generateNewVerificationToken(String existingToken);
 
 	public VerificationToken getVerificationToken(String verificationToken);
 	
