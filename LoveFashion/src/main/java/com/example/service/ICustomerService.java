@@ -1,8 +1,11 @@
 package com.example.service;
 
 import java.security.NoSuchAlgorithmException;
+import java.util.List;
 
+import com.example.dto.AddressAccount;
 import com.example.dto.RegisterModel;
+import com.example.entity.CustomerAddressEntity;
 import com.example.entity.CustomerEntity;
 import com.example.entity.VerificationToken;
 
@@ -20,5 +23,18 @@ public interface ICustomerService {
 			String token);
 
 	public VerificationToken getVerificationToken(String verificationToken);
+	
+	public String hashPassword(String password) throws NoSuchAlgorithmException;
+	
+	public void saveAdress(AddressAccount address, CustomerEntity customer);
+	
+	public void updateAdress(AddressAccount address, CustomerEntity customer);
+	
+	public CustomerAddressEntity getCustomerAddress(Integer id);
+	
+	public void deleteCustomerAddress(Integer id);
+	
+	public List<CustomerAddressEntity>  findAdditionalAddress(int customerId,
+			Integer defaultBilling, Integer defaultShipping);
 
 }

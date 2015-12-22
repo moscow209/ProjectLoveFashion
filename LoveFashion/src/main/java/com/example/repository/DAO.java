@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 
 public interface DAO <T extends Object>{
-	public void create(T t);
+	public int create(T t);
 	public T get(Serializable id);
 	public T load(Serializable id);
 	public List<T> getAll();

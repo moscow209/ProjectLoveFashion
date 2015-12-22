@@ -3,16 +3,20 @@ package com.example.service;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Date;
+import java.util.List;
 
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.example.dto.AddressAccount;
 import com.example.dto.RegisterModel;
+import com.example.entity.CustomerAddressEntity;
 import com.example.entity.CustomerEntity;
 import com.example.entity.CustomerGroup;
 import com.example.entity.VerificationToken;
+import com.example.repository.ICustomerAddressDAO;
 import com.example.repository.ICustomerDAO;
 import com.example.repository.IVerificationTokenDAO;
 
@@ -23,6 +27,8 @@ public class CustomerService implements ICustomerService {
 	private ICustomerDAO customerDao;
 	@Autowired
 	private IVerificationTokenDAO tokenRepository;
+	@Autowired
+	private ICustomerAddressDAO addressRepository;
 
 	@Transactional
 	public CustomerEntity getCustomer(String email, String password)
@@ -32,8 +38,7 @@ public class CustomerService implements ICustomerService {
 		return customerDao.getCustomer(email, password);
 	}
 
-	private String hashPassword(String password)
-			throws NoSuchAlgorithmException {
+	public String hashPassword(String password) throws NoSuchAlgorithmException {
 		MessageDigest md = MessageDigest.getInstance("MD5");
 		md.update(password.getBytes());
 		byte[] hashedBytes = md.digest();
@@ -93,6 +98,69 @@ public class CustomerService implements ICustomerService {
 	public VerificationToken getVerificationToken(String verificationToken) {
 		// TODO Auto-generated method stub
 		return tokenRepository.findByToken(verificationToken);
+	}
+
+	@Transactional
+	public void saveAdress(AddressAccount address, CustomerEntity customer) {
+		// TODO Auto-generated method stub
+		CustomerAddressEntity cusAddress = new CustomerAddressEntity();
+		cusAddress.setCustomerEntity(customer);
+		cusAddress.setCountry(address.getCountry());
+		cusAddress.setCountryId(address.getCountryId());
+		cusAddress.setRegion(address.getRegion());
+		cusAddress.setRegionId(address.getRegionId());
+		cusAddress.setCreatedAt(new Date());
+		cusAddress.setUpdatedAt(new Date());
+		cusAddress.setFirstname(address.getFirstName());
+		cusAddress.setLastname(address.getLastName());
+		cusAddress.setPhone(address.getTelephone());
+		cusAddress.setStreet(address.getStreet());
+		int id = addressRepository.create(cusAddress);
+		if (address.isDefaultBillingAddress())
+			customer.setDefaultBilling(id);
+		if (address.isDefaultShippingAddress())
+			customer.setDefaultShipping(id);
+		this.update(customer);
+	}
+
+	@Transactional
+	public CustomerAddressEntity getCustomerAddress(Integer id) {
+		// TODO Auto-generated method stub
+		return addressRepository.get(id);
+	}
+
+	@Transactional
+	public List<CustomerAddressEntity> findAdditionalAddress(int customerId,
+			Integer defaultBilling, Integer defaultShipping) {
+		// TODO Auto-generated method stub
+		return addressRepository.findAdditionalAddress(customerId,
+				defaultBilling, defaultShipping);
+	}
+
+	public void deleteCustomerAddress(Integer id) {
+		// TODO Auto-generated method stub
+		addressRepository.deleteById(id);
+	}
+
+	public void updateAdress(AddressAccount address, CustomerEntity customer) {
+		// TODO Auto-generated method stub
+		CustomerAddressEntity cusAddress = new CustomerAddressEntity();
+		cusAddress.setCustomerEntity(customer);
+		cusAddress.setCountry(address.getCountry());
+		cusAddress.setCountryId(address.getCountryId());
+		cusAddress.setRegion(address.getRegion());
+		cusAddress.setRegionId(address.getRegionId());
+		cusAddress.setUpdatedAt(new Date());
+		cusAddress.setFirstname(address.getFirstName());
+		cusAddress.setLastname(address.getLastName());
+		cusAddress.setPhone(address.getTelephone());
+		cusAddress.setStreet(address.getStreet());
+		addressRepository.update(cusAddress);
+		if (address.isDefaultBillingAddress())
+			customer.setDefaultBilling(address.getEntityId());
+		if (address.isDefaultShippingAddress())
+			customer.setDefaultShipping(address.getEntityId());
+		this.update(customer);
 	}
 
 }

@@ -92,68 +92,68 @@
 <script type="text/javascript" src="/resources/js/msrp.js"></script>
 <style>
 @font-face {
-	font-family: "Roboto Condensed Regular";
-	font-style: normal;
-	font-weight: 400;
-	src: local("Roboto Condensed Regular"), local("RobotoCondensed-Regular"),
-		url(/resources/font/Zd2E9abXLFGSr9G3YK2MsFzqCfRpIA3W6ypxnPISCPA.woff)
-		format("woff");
+    font-family: "Roboto Condensed Regular";
+    font-style: normal;
+    font-weight: 400;
+    src: local("Roboto Condensed Regular"), local("RobotoCondensed-Regular"),
+        url(/resources/font/Zd2E9abXLFGSr9G3YK2MsFzqCfRpIA3W6ypxnPISCPA.woff)
+        format("woff");
 }
 
 body {
-	font-size: 12px;
-	font-family: Arial;
+    font-size: 12px;
+    font-family: Arial;
 }
 
 .right-content-header .detail-minicart .title-cart,.button,.respl-item .item-inner .item-image .item-price .regular-price .price,.respl-item .item-inner .item-image .item-price .old-price .price,.catalog-product-view #yt_main .page-title h1,.left-product-base .special-price .special-price,.left-product-base .regular-price .price,#yt_main .products-list .product-info .price,#yt_main .products-list .product-info .special-price .special-price,.yt-product-detail .yt-detail-right .price-box,.wrap-qty .qty-title,.yt-product-detail .yt-detail-right .product-name,.yt-product-detail .tab-product-detail .yt-tab-navi>li>a,.left-product-base .item-box-content .old-price .price,.respl-item .item-inner .item-image .item-price .minimal-price .price,.respl-item .item-inner .item-image .item-price .price-from .price,.respl-item .item-inner .item-image .item-price .price-to .price,#zoptions .price-box,#confirmbox .button.btn-cart>span,#btcancel,#btccart span,#btcshop span,.category-description .des-about,.promotional-popup .form-subscribe-header h2,.promotional-popup .btn-newsletter,.sm_megamenu_wrapper_horizontal_menu .sm_megamenu_menu li a.sm_megamenu_head,#what-client-say .item-cus .name-client,.footer-title h2,.btn_slide,.a-few-words,.banner-center-wrapper,.w-title h2,.submit-login .submit-repl,.product-details .product-name a,.mini-cartpro .block-content .mini-products-list li.item .price,.mini-cartpro .block-content .mini-products-list li.item .qty-w .label-qty,.mini-cartpro .price-total,.sm_megamenu_head_item .sm_megamenu_title,.cart-collaterals .crosssell .product-details .price,.cart-collaterals .crosssell .product-details .special-price .special-price,#checkoutSteps .step-title>h2,#checkoutSteps .step-title>span,.fieldset .legend,#nav>li>a,.sm_quickview_handler,.block-layered-nav .currently ol li span.value,.price-wrapper-shopby .title-price>h2,#yt_main .products-list .item .price-label,.sm-deal-wrap .view-detail,#yt_left .block .block-title strong,#yt_right .block .block-title strong,.related-header .block-title strong,.block-right-nav .block-title strong,.home-products .block-title strong,.left-product-base .item-box-content .product-name a,.respl-item .item-info .item-title a,.sale-item,.new-product,.static-top-home .content-banner-top h2 a,.respl-tabs-wrap h2.cat-name-tab,.newletter-home .new-static>h2,.quick-info .item1,.quick-info .item2>span,.sm_megamenu_wrapper_vertical_menu .sm_megamenu_menu .sm_megamenu_lv1 .sm_megamenu_head .sm_megamenu_title,.sm_megamenu_wrapper_vertical_menu .sm_megamenu_menu .more-view,.list-categories li a,.static-banner-center-homev1 .dt-static-homev1 .detail-homev1,.header-style-4 .btn-ver-menu .txt-btn,#yt_main .page-title h1,.respl-item .item-info .item-price .price,.left-product-base .item-box-content .old-price .price,.left-product-base .special-price
-	{
-	font-family: Roboto Condensed Regular, serif
+    {
+    font-family: Roboto Condensed Regular, serif
 }
 
 body.sm_lovefashion {
-	color: #666666;
-	background-color: #ffffff;
+    color: #666666;
+    background-color: #ffffff;
 }
 
 a {
-	color: #666666;
+    color: #666666;
 }
 </style>
 
 <script type="text/javascript">
-	$jsmart(document).ready(function($) {
-		$('.link-wishlist').each(function() {
-			var href = $(this).attr('href');
-			href = href.replace('https:', 'http:');
-			$(this).attr('href', href);
-		});
-		/* show-hidden login form */
-		$(".header-login .login-quick").hide();
-		$('.header-login a.login').click(function() {
-			$this = $(this);
-			$this.toggleClass("actived");
-			$(".login-quick").slideToggle("fast");
-		});
-		/*show-hidden account user*/
-		$(".header-user .links").hide();
-		$('.header-user span.icon-user').click(function() {
-			$this = $(this);
-			$this.toggleClass("actived");
-			$(".header-user .links").slideToggle("fast");
-		});
-	});
+    $jsmart(document).ready(function($) {
+        $('.link-wishlist').each(function() {
+            var href = $(this).attr('href');
+            href = href.replace('https:', 'http:');
+            $(this).attr('href', href);
+        });
+        /* show-hidden login form */
+        $(".header-login .login-quick").hide();
+        $('.header-login a.login').click(function() {
+            $this = $(this);
+            $this.toggleClass("actived");
+            $(".login-quick").slideToggle("fast");
+        });
+        /*show-hidden account user*/
+        $(".header-user .links").hide();
+        $('.header-user span.icon-user').click(function() {
+            $this = $(this);
+            $this.toggleClass("actived");
+            $(".header-user .links").slideToggle("fast");
+        });
+    });
 </script>
 <script type="text/javascript">
-	$jsmart(function($) {
-		//style for select option, radio...
-		$("#chk_remember").uniform();
-		$("#dont-show-again").uniform();
-		$("#poll-answers .radio").uniform();
-		$("#product-options-wrapper select").uniform();
-		$("#toolbar-limit select").uniform();
-		$(".toolbar .select-inner select").uniform();
-		$(".sm-searbox-content .cat-wrapper select").uniform();
-	});
+    $jsmart(function($) {
+        //style for select option, radio...
+        $("#chk_remember").uniform();
+        $("#dont-show-again").uniform();
+        $("#poll-answers .radio").uniform();
+        $("#product-options-wrapper select").uniform();
+        $("#toolbar-limit select").uniform();
+        $(".toolbar .select-inner select").uniform();
+        $(".sm-searbox-content .cat-wrapper select").uniform();
+    });
 </script>
 </head>
 <body id="bd" class="sm_lovefashion">
@@ -210,7 +210,7 @@ a {
                   <div class="page-title block-title title-create-address">
                     <h1>Add New Address</h1>
                   </div>
-                  <form:form action="/customer/account/address/new" method="post" id="form-validate" commandName="address">
+                  <form:form action="/customer/account/address/edit/id/${address.entityId}" method="post" id="form-validate" commandName="address">
                     <div class="fieldset">
                       <h2 class="legend">Contact Information</h2>
                       <ul class="form-list edit-address-form">
@@ -219,7 +219,7 @@ a {
                             <div class="field name-firstname col-md-6">
                               <label for="firstname" class="required"><em>*</em>First Name</label>
                               <div class="input-box">
-                                <form:input path="firstName" value="${sessionScope.customer.firstname}" title="First Name" maxlength="255" class="input-text required-entry" />
+                                <form:input path="firstName" value="${firstname}" title="First Name" maxlength="255" class="input-text required-entry" />
                               </div>
                             </div>
                           </div>
@@ -227,7 +227,7 @@ a {
                             <div class="field name-firstname col-md-6">
                               <label for="lastname" class="required"><em>*</em>Last Name</label>
                               <div class="input-box">
-                                <form:input path="lastName" value="${sessionScope.customer.lastname}" title="Last Name" maxlength="255" class="input-text required-entry" />
+                                <form:input path="lastName" value="${lastname}" title="Last Name" maxlength="255" class="input-text required-entry" />
                               </div>
                             </div>
                           </div>
@@ -235,7 +235,7 @@ a {
                             <div class="field name-firstname col-md-6">
                               <label for="telephone" class="required"><em>*</em>Telephone</label>
                               <div class="input-box">
-                                <form:input path="telephone" title="Telephone" class="input-text required-entry" />
+                                <form:input path="telephone" value="${telephone}" title="Telephone" class="input-text required-entry" />
                               </div>
                             </div>
                           </div>
@@ -247,14 +247,14 @@ a {
                       <ul class="form-list edit-address-form">
                         <li class="wide"><label for="street_1" class="required"><em>*</em>Street Address</label>
                           <div class="input-box">
-                            <form:input path="street" title="Street" class="input-text required-entry" />
+                            <form:input path="street" value="${street}" title="Street" class="input-text required-entry" />
                           </div></li>
                         <li class="fields">
                           <div class="row">
                             <div class="field col-md-6">
                               <label for="region_id" class="required"><em>*</em>State/Province</label>
                               <div class="input-box">
-                                <form:select path="regionId" class="validate-select required-entry">
+                                <form:select path="regionId" value="${regionId}" class="validate-select required-entry">
                                   <form:option value="" label="Please select region, state or province" />
                                   <form:options items="${regionList}" />
                                 </form:select>
@@ -263,7 +263,7 @@ a {
                             <div class="field col-md-6">
                               <label for="country" class="required"><em>*</em>Country</label>
                               <div class="input-box">
-                                <form:select path="countryId" class="validate-select required-entry" defaultvalue="0">
+                                <form:select path="countryId" value="${countryId}" class="validate-select required-entry" defaultvalue="0">
                                   <form:option value="" label="Please select region, state or province" />
                                   <form:options items="${countryList}" />
                                 </form:select>
@@ -273,10 +273,24 @@ a {
                         </li>
                         <li class="fields">
                           <div class="row">
-                            <li class="control"><form:checkbox path="defaultBillingAddress" title="Use as My Default Billing Address" class="checkbox" /> <label for="primary_billing">Use
+                            <c:if test="${not empty defaultBilling && defaultBilling == address.entityId}">
+                                <li>
+                                    <strong>Default Billing Address</strong>
+                                </li>
+                            </c:if>
+                            <c:if test="${empty defaultBilling || defaultBilling != address.entityId}">
+                                <li class="control"><form:checkbox path="defaultBillingAddress" title="Use as My Default Billing Address" class="checkbox" /> <label for="primary_billing">Use
                                 as my default billing address</label></li>
-                            <li class="control"><form:checkbox path="defaultShippingAddress" title="Use as My Default Shipping Address" class="checkbox" /> <label for="primary_shipping">Use
+                            </c:if>
+                            <c:if test="${not empty defaultBilling && defaultBilling == address.entityId}">
+                                <li>
+                                    <strong>Default Shipping Address</strong>
+                                </li>
+                            </c:if>
+                            <c:if test="${empty defaultShipping || defaultShipping != address.entityId}">
+                                <li class="control"><form:checkbox path="defaultShippingAddress" title="Use as My Default Shipping Address" class="checkbox" /> <label for="primary_shipping">Use
                                 as my default shipping address</label></li>
+                            </c:if>
                           </div>
                         </li>
                       </ul>
@@ -304,7 +318,7 @@ a {
     <!-- END: Footer -->
   </div>
   <script type="text/javascript">
-			var dataForm = new VarienForm('form-validate', true);
-		</script>
+            var dataForm = new VarienForm('form-validate', true);
+        </script>
 </body>
 </html>

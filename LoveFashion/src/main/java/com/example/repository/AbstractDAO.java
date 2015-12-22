@@ -32,9 +32,9 @@ public abstract class AbstractDAO<T extends Object> implements DAO<T> {
 		return getDomainClass().getName();
 	}
 
-	public void create(T t) {
+	public int create(T t) {
 		// TODO Auto-generated method stub
-		getSession().save(t);
+		return (Integer) getSession().save(t);
 
 	}
 

@@ -1,17 +1,16 @@
-<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ taglib uri='http://java.sun.com/jsp/jstl/core' prefix='c'%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta name="format-detection" content="telephone=no">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>My Account</title>
+<title>404 Not Found</title>
 <meta name="description" content="Page description" />
 <meta name="keywords" content="Page keywords" />
 <meta name="robots" content="INDEX,FOLLOW" />
-<link rel="icon" href="/resources/images/favicon.ico" type="image/x-icon" />
-<link rel="shortcut icon" href="/resources/images/favicon.ico" type="image/x-icon" />
+<link rel="icon" href="resources/images/favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="resources/images/favicon.ico" type="image/x-icon" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
 <!-- Style -->
@@ -45,10 +44,10 @@
 <link rel="stylesheet" type="text/css" href="/resources/css/slider.css" media="all">
 <link rel="stylesheet" type="text/css" href="/resources/css/tablisting.css" media="all">
 <link rel="stylesheet" type="text/css" href="/resources/css/print.css" media="print">
-<link rel="stylesheet" href="/resources/css/violet.css" type="text/css" />
+<link rel="stylesheet" href="resources/css/violet.css" type="text/css" />
 
 <!-- js -->
-<script type="text/javascript" src="/resources/js/prototype.js"></script>
+<script type="text/javascript" src="resources/js/prototype.js"></script>
 <script type="text/javascript" src="/resources/js/ccard.js"></script>
 <script type="text/javascript" src="/resources/js/validation.js"></script>
 <script type="text/javascript" src="/resources/js/builder.js"></script>
@@ -96,7 +95,7 @@
 	font-style: normal;
 	font-weight: 400;
 	src: local("Roboto Condensed Regular"), local("RobotoCondensed-Regular"),
-		url(/resources/font/Zd2E9abXLFGSr9G3YK2MsFzqCfRpIA3W6ypxnPISCPA.woff)
+		url(resources/font/Zd2E9abXLFGSr9G3YK2MsFzqCfRpIA3W6ypxnPISCPA.woff)
 		format("woff");
 }
 
@@ -119,8 +118,9 @@ a {
 	color: #666666;
 }
 </style>
-
+<!-- Login -->
 <script type="text/javascript">
+	//<![CDATA[
 	$jsmart(document).ready(function($) {
 		$('.link-wishlist').each(function() {
 			var href = $(this).attr('href');
@@ -142,8 +142,11 @@ a {
 			$(".header-user .links").slideToggle("fast");
 		});
 	});
+	//]]>
 </script>
+<!-- Search -->
 <script type="text/javascript">
+	//<![CDATA[
 	$jsmart(function($) {
 		//style for select option, radio...
 		$("#chk_remember").uniform();
@@ -154,7 +157,9 @@ a {
 		$(".toolbar .select-inner select").uniform();
 		$(".sm-searbox-content .cat-wrapper select").uniform();
 	});
+	//]]>
 </script>
+
 </head>
 <body id="bd" class="sm_lovefashion">
   <div id="yt_wrapper">
@@ -163,13 +168,9 @@ a {
     <!-- END: Header -->
     <!-- BEGIN: Content -->
     <div id="yt_content" class="yt-content wrap col2-left-layout">
-
-
       <div class="yt-content-inner wrapper-inner">
-
         <div class="container">
           <div class="row">
-
             <div id="yt_left" class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
               <div class="yt-left-wrap">
                 <div class="block block-account">
@@ -207,93 +208,100 @@ a {
                   </div>
                 </div>
                 <div class="my-account">
-                  <div class="page-title block-title title-create-address">
-                    <h1>Add New Address</h1>
+                  <div class="page-title title-buttons">
+                    <h1>Address Book</h1>
+                    <button type="button" title="Add New Address" class="button" onclick="window.location='http://demo.magentech.com/themes/sm_love_fashion/customer/address/new/';">
+                      <span><span>Add New Address</span></span>
+                    </button>
                   </div>
-                  <form:form action="/customer/account/address/new" method="post" id="form-validate" commandName="address">
-                    <div class="fieldset">
-                      <h2 class="legend">Contact Information</h2>
-                      <ul class="form-list edit-address-form">
-                        <li class="fields">
-                          <div class="customer-name-middlename row">
-                            <div class="field name-firstname col-md-6">
-                              <label for="firstname" class="required"><em>*</em>First Name</label>
-                              <div class="input-box">
-                                <form:input path="firstName" value="${sessionScope.customer.firstname}" title="First Name" maxlength="255" class="input-text required-entry" />
-                              </div>
-                            </div>
-                          </div>
-                          <div class="customer-name-middlename row">
-                            <div class="field name-firstname col-md-6">
-                              <label for="lastname" class="required"><em>*</em>Last Name</label>
-                              <div class="input-box">
-                                <form:input path="lastName" value="${sessionScope.customer.lastname}" title="Last Name" maxlength="255" class="input-text required-entry" />
-                              </div>
-                            </div>
-                          </div>
-                          <div class="customer-name-middlename row">
-                            <div class="field name-firstname col-md-6">
-                              <label for="telephone" class="required"><em>*</em>Telephone</label>
-                              <div class="input-box">
-                                <form:input path="telephone" title="Telephone" class="input-text required-entry" />
-                              </div>
-                            </div>
-                          </div>
-                        </li>
-                      </ul>
+                  <div class="col2-set addresses-list">
+                    <div class="col-1 addresses-primary">
+                      <h2>Default Billing Address</h2>
+                      <ol>
+                        <li class="item"><c:if test="${not empty defaultBilling}">
+                            <address>
+                              Name: ${defaultBilling.firstname} ${defaultBilling.lastname} </br> Address: ${defaultBilling.street}, ${defaultBilling.region} </br> Country: ${defaultBilling.country} </br> Phone:
+                              ${defaultBilling.phone}
+                            </address>
+                            <p>
+                              <a href="/customer/account/address/edit/id/${defaultBilling.entityId}">Change Billing Address</a>
+                            </p>
+                          </c:if></li>
+                      </ol>
                     </div>
-                    <div class="fieldset">
-                      <h2 class="legend">Address</h2>
-                      <ul class="form-list edit-address-form">
-                        <li class="wide"><label for="street_1" class="required"><em>*</em>Street Address</label>
-                          <div class="input-box">
-                            <form:input path="street" title="Street" class="input-text required-entry" />
-                          </div></li>
-                        <li class="fields">
-                          <div class="row">
-                            <div class="field col-md-6">
-                              <label for="region_id" class="required"><em>*</em>State/Province</label>
-                              <div class="input-box">
-                                <form:select path="regionId" class="validate-select required-entry">
-                                  <form:option value="" label="Please select region, state or province" />
-                                  <form:options items="${regionList}" />
-                                </form:select>
-                              </div>
-                            </div>
-                            <div class="field col-md-6">
-                              <label for="country" class="required"><em>*</em>Country</label>
-                              <div class="input-box">
-                                <form:select path="countryId" class="validate-select required-entry" defaultvalue="0">
-                                  <form:option value="" label="Please select region, state or province" />
-                                  <form:options items="${countryList}" />
-                                </form:select>
-                              </div>
-                            </div>
-                          </div>
-                        </li>
-                        <li class="fields">
-                          <div class="row">
-                            <li class="control"><form:checkbox path="defaultBillingAddress" title="Use as My Default Billing Address" class="checkbox" /> <label for="primary_billing">Use
-                                as my default billing address</label></li>
-                            <li class="control"><form:checkbox path="defaultShippingAddress" title="Use as My Default Shipping Address" class="checkbox" /> <label for="primary_shipping">Use
-                                as my default shipping address</label></li>
-                          </div>
-                        </li>
-                      </ul>
+                    <div class="col-2 addresses-additional">
+                      <h2>Default Shipping Address</h2>
+                      <ol>
+                        <li class="item"><c:if test="${not empty defaultShipping}">
+                            <address>
+                              Name: ${defaultShipping.firstname} ${defaultShipping.lastname} </br> Address: ${defaultShipping.street}, ${defaultShipping.region} </br> Country: ${defaultShipping.country} </br> Phone:
+                              ${defaultShipping.phone}
+                            </address>
+                            <p>
+                              <a href="/customer/account/address/edit/id/${defaultShipping.entityId}">Change Billing Address</a>
+                            </p>
+                          </c:if></li>
+                      </ol>
                     </div>
-                    <div class="buttons-set">
-                      <p class="required">* Required Fields</p>
-                      <p class="back-link">
-                        <a href="http://demo.magentech.com/themes/sm_love_fashion/customer/address/"><small>Â« </small>Back</a>
-                      </p>
-                      <button type="submit" title="Save Address" class="button">
-                        <span><span>Save Address</span></span>
-                      </button>
-                    </div>
-                  </form:form>
+                  </div>
+                  </br>
+                  <div class="col2-set addresses-list">
+                    <h2>Additional Address Entries</h2>
+                    <c:forEach var="item" items="${listAddress}" varStatus="status">
+                      <c:if test="${status.index % 2 == 0}">
+                        <div class="col-1 addresses-primary">
+                          <ol>
+                            <li class="item">
+                              <address>
+                                Name: ${item.firstname} ${item.lastname} </br> Address: ${item.street}, ${item.region} </br> Country: ${item.country} </br> Phone: ${item.phone}
+                              </address>
+                              <p>
+                                <a href="/customer/account/address/edit/id/${item.entityId}">Edit Address</a> <span class="separator">|</span> <a href="#"
+                                  class="link-remove" onclick="return deleteAddress(${item.entityId});">Delete Address</a>
+                              </p>
+                            </li>
+                          </ol>
+                        </div>
+                      </c:if>
+                      <c:if test="${status.index % 2 != 0}">
+                        <div class="col-2 addresses-additional">
+                          <ol>
+                            <li class="item">
+                              <address>
+                                Name: ${item.firstname} ${item.lastname} </br> Address: ${item.street}, ${item.region} </br> Country: ${item.country} </br> Phone: ${item.phone}
+                              </address>
+                              <p>
+                                <a href="/customer/account/address/edit/id/${item.entityId}">Edit Address</a> <span class="separator">|</span> <a href="#"
+                                  class="link-remove" onclick="return deleteAddress(${item.entityId});">Delete Address</a>
+                              </p>
+                            </li>
+                          </ol>
+                        </div>
+                      </c:if>
+                    </c:forEach>
+                  </div>
+                  <div class="buttons-set">
+                    <p class="back-link">
+                      <a href="http://demo.magentech.com/themes/sm_love_fashion/customer/account/login/"><small>« </small>Back</a>
+                    </p>
+                  </div>
+                  <script type="text/javascript">
+																			//<![CDATA[
+																			function deleteAddress(
+																					addressId) {
+																				if (confirm('Are you sure you want to delete this address?')) {
+																					window.location = '/customer/account/address/delete/id/'
+																							+ addressId;
+																				}
+																				return false;
+																			}
+																			//]]>
+																		</script>
                 </div>
               </div>
             </div>
+
+
           </div>
         </div>
       </div>
@@ -303,8 +311,5 @@ a {
     <jsp:include page="footer.jsp"></jsp:include>
     <!-- END: Footer -->
   </div>
-  <script type="text/javascript">
-			var dataForm = new VarienForm('form-validate', true);
-		</script>
 </body>
 </html>

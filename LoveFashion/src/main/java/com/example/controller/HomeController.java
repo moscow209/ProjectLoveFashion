@@ -10,6 +10,6 @@ public class HomeController {
 
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
 	public String home(Model model) {
-		return "about";
+		return "update-account";
 	}
 }

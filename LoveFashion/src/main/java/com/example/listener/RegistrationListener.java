@@ -23,7 +23,7 @@ public class RegistrationListener implements
 	private JavaMailSender mailSender;
 
 	public void onApplicationEvent(OnRegistrationCompleteEvent event) {
-		System.out.println("esttdstdst");
+		confirmRegistration(event);
 	}
 
 	private void confirmRegistration(OnRegistrationCompleteEvent event) {
@@ -37,7 +37,7 @@ public class RegistrationListener implements
 		SimpleMailMessage email = new SimpleMailMessage();
 		email.setTo(recipientAddress);
 		email.setSubject(subject);
-		email.setText("Test" + " rn" + "http://localhost:8080"
+		email.setText("Test" + ": " + "http://localhost:8080/customer/account"
 				+ confirmationUrl);
 		mailSender.send(email);
 	}

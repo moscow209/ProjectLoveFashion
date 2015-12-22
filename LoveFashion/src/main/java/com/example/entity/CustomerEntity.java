@@ -54,6 +54,10 @@ public class CustomerEntity implements java.io.Serializable {
 
 	public CustomerEntity() {
 	}
+	
+	public CustomerEntity(int entityId) {
+		this.entityId = entityId;
+	}
 
 	public CustomerEntity(CustomerGroup customerGroup, Date createdAt, Date updatedAt, short isActive, short lognum) {
 		this.customerGroup = customerGroup;

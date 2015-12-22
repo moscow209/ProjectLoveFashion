@@ -34,9 +34,9 @@ public class CustomerAddressEntity implements java.io.Serializable {
 	private short isActive;
 	private String street;
 	private String region;
-	private Integer regionId;
+	private String regionId;
 	private String country;
-	private Integer countryId;
+	private String countryId;
 	private String firstname;
 	private String lastname;
 	private String phone;
@@ -51,7 +51,7 @@ public class CustomerAddressEntity implements java.io.Serializable {
 	}
 
 	public CustomerAddressEntity(CustomerEntity customerEntity, Date createdAt, Date updatedAt, short isActive,
-			String street, String region, Integer regionId, String country, Integer countryId, String firstname,
+			String street, String region, String regionId, String country, String countryId, String firstname,
 			String lastname, String phone) {
 		this.customerEntity = customerEntity;
 		this.createdAt = createdAt;
@@ -136,12 +136,12 @@ public class CustomerAddressEntity implements java.io.Serializable {
 		this.region = region;
 	}
 
-	@Column(name = "region_id")
-	public Integer getRegionId() {
+	@Column(name = "region_id", length = 20)
+	public String getRegionId() {
 		return this.regionId;
 	}
 
-	public void setRegionId(Integer regionId) {
+	public void setRegionId(String regionId) {
 		this.regionId = regionId;
 	}
 
@@ -154,12 +154,12 @@ public class CustomerAddressEntity implements java.io.Serializable {
 		this.country = country;
 	}
 
-	@Column(name = "country_id")
-	public Integer getCountryId() {
+	@Column(name = "country_id", length = 20)
+	public String getCountryId() {
 		return this.countryId;
 	}
 
-	public void setCountryId(Integer countryId) {
+	public void setCountryId(String countryId) {
 		this.countryId = countryId;
 	}
 

@@ -103,42 +103,8 @@ body {
 	font-family: Arial;
 }
 
-.right-content-header .detail-minicart .title-cart, .button, .respl-item .item-inner .item-image .item-price .regular-price .price,
-	.respl-item .item-inner .item-image .item-price .old-price .price,
-	.catalog-product-view #yt_main .page-title h1, .left-product-base .special-price .special-price,
-	.left-product-base .regular-price .price, #yt_main .products-list .product-info .price,
-	#yt_main .products-list .product-info .special-price .special-price,
-	.yt-product-detail .yt-detail-right .price-box, .wrap-qty .qty-title,
-	.yt-product-detail .yt-detail-right .product-name, .yt-product-detail .tab-product-detail .yt-tab-navi>li>a,
-	.left-product-base .item-box-content .old-price .price, .respl-item .item-inner .item-image .item-price .minimal-price .price,
-	.respl-item .item-inner .item-image .item-price .price-from .price,
-	.respl-item .item-inner .item-image .item-price .price-to .price,
-	#zoptions .price-box, #confirmbox .button.btn-cart>span, #btcancel,
-	#btccart span, #btcshop span, .category-description .des-about,
-	.promotional-popup .form-subscribe-header h2, .promotional-popup .btn-newsletter,
-	.sm_megamenu_wrapper_horizontal_menu .sm_megamenu_menu li a.sm_megamenu_head,
-	#what-client-say .item-cus .name-client, .footer-title h2, .btn_slide,
-	.a-few-words, .banner-center-wrapper, .w-title h2, .submit-login .submit-repl,
-	.product-details .product-name a, .mini-cartpro .block-content .mini-products-list li.item .price,
-	.mini-cartpro .block-content .mini-products-list li.item .qty-w .label-qty,
-	.mini-cartpro .price-total, .sm_megamenu_head_item .sm_megamenu_title,
-	.cart-collaterals .crosssell .product-details .price, .cart-collaterals .crosssell .product-details .special-price .special-price,
-	#checkoutSteps .step-title>h2, #checkoutSteps .step-title>span,
-	.fieldset .legend, #nav>li>a, .sm_quickview_handler, .block-layered-nav .currently ol li span.value,
-	.price-wrapper-shopby .title-price>h2, #yt_main .products-list .item .price-label,
-	.sm-deal-wrap .view-detail, #yt_left .block .block-title strong,
-	#yt_right .block .block-title strong, .related-header .block-title strong,
-	.block-right-nav .block-title strong, .home-products .block-title strong,
-	.left-product-base .item-box-content .product-name a, .respl-item .item-info .item-title a,
-	.sale-item, .new-product, .static-top-home .content-banner-top h2 a,
-	.respl-tabs-wrap h2.cat-name-tab, .newletter-home .new-static>h2,
-	.quick-info .item1, .quick-info .item2>span,
-	.sm_megamenu_wrapper_vertical_menu .sm_megamenu_menu .sm_megamenu_lv1 .sm_megamenu_head .sm_megamenu_title,
-	.sm_megamenu_wrapper_vertical_menu .sm_megamenu_menu .more-view,
-	.list-categories li a, .static-banner-center-homev1 .dt-static-homev1 .detail-homev1,
-	.header-style-4 .btn-ver-menu .txt-btn, #yt_main .page-title h1,
-	.respl-item .item-info .item-price .price, .left-product-base .item-box-content .old-price .price,
-	.left-product-base .special-price {
+.right-content-header .detail-minicart .title-cart,.button,.respl-item .item-inner .item-image .item-price .regular-price .price,.respl-item .item-inner .item-image .item-price .old-price .price,.catalog-product-view #yt_main .page-title h1,.left-product-base .special-price .special-price,.left-product-base .regular-price .price,#yt_main .products-list .product-info .price,#yt_main .products-list .product-info .special-price .special-price,.yt-product-detail .yt-detail-right .price-box,.wrap-qty .qty-title,.yt-product-detail .yt-detail-right .product-name,.yt-product-detail .tab-product-detail .yt-tab-navi>li>a,.left-product-base .item-box-content .old-price .price,.respl-item .item-inner .item-image .item-price .minimal-price .price,.respl-item .item-inner .item-image .item-price .price-from .price,.respl-item .item-inner .item-image .item-price .price-to .price,#zoptions .price-box,#confirmbox .button.btn-cart>span,#btcancel,#btccart span,#btcshop span,.category-description .des-about,.promotional-popup .form-subscribe-header h2,.promotional-popup .btn-newsletter,.sm_megamenu_wrapper_horizontal_menu .sm_megamenu_menu li a.sm_megamenu_head,#what-client-say .item-cus .name-client,.footer-title h2,.btn_slide,.a-few-words,.banner-center-wrapper,.w-title h2,.submit-login .submit-repl,.product-details .product-name a,.mini-cartpro .block-content .mini-products-list li.item .price,.mini-cartpro .block-content .mini-products-list li.item .qty-w .label-qty,.mini-cartpro .price-total,.sm_megamenu_head_item .sm_megamenu_title,.cart-collaterals .crosssell .product-details .price,.cart-collaterals .crosssell .product-details .special-price .special-price,#checkoutSteps .step-title>h2,#checkoutSteps .step-title>span,.fieldset .legend,#nav>li>a,.sm_quickview_handler,.block-layered-nav .currently ol li span.value,.price-wrapper-shopby .title-price>h2,#yt_main .products-list .item .price-label,.sm-deal-wrap .view-detail,#yt_left .block .block-title strong,#yt_right .block .block-title strong,.related-header .block-title strong,.block-right-nav .block-title strong,.home-products .block-title strong,.left-product-base .item-box-content .product-name a,.respl-item .item-info .item-title a,.sale-item,.new-product,.static-top-home .content-banner-top h2 a,.respl-tabs-wrap h2.cat-name-tab,.newletter-home .new-static>h2,.quick-info .item1,.quick-info .item2>span,.sm_megamenu_wrapper_vertical_menu .sm_megamenu_menu .sm_megamenu_lv1 .sm_megamenu_head .sm_megamenu_title,.sm_megamenu_wrapper_vertical_menu .sm_megamenu_menu .more-view,.list-categories li a,.static-banner-center-homev1 .dt-static-homev1 .detail-homev1,.header-style-4 .btn-ver-menu .txt-btn,#yt_main .page-title h1,.respl-item .item-info .item-price .price,.left-product-base .item-box-content .old-price .price,.left-product-base .special-price
+	{
 	font-family: Roboto Condensed Regular, serif
 }
 
@@ -189,136 +155,146 @@ a {
 </script>
 </head>
 <body id="bd" class="sm_lovefashion">
-	<div id="yt_wrapper">
-		<!-- BEGIN: Header -->
-		<jsp:include page="header.jsp"></jsp:include>
-		<!-- END: Header -->
-		<!-- BEGIN: Content -->
-		<div id="yt_content" class="yt-content wrap col2-left-layout">
-			<div class="yt-content-inner wrapper-inner">
-				<div class="container">
-					<div class="row">
-						<div id="yt_left" class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
-							<div class="yt-left-wrap">
-								<div class="block block-account">
-									<div class="block-title">
-										<strong> <span>My Account</span>
-										</strong>
-									</div>
-									<div class="block-content">
-										<ul>
-											<li class="current"><strong>Account Dashboard</strong></li>
-											<li><a href="#">Account Information</a></li>
-											<li><a href="#">Address Book</a></li>
-											<li><a href="#">My Orders</a></li>
-											<li><a href="#">Billing Agreements</a></li>
-											<li><a href="#/">My Wishlist</a></li>
-										</ul>
-									</div>
-								</div>
-							</div>
-						</div>
+  <div id="yt_wrapper">
+    <!-- BEGIN: Header -->
+    <jsp:include page="header.jsp"></jsp:include>
+    <!-- END: Header -->
+    <!-- BEGIN: Content -->
+    <div id="yt_content" class="yt-content wrap col2-left-layout">
+      <div class="yt-content-inner wrapper-inner">
+        <div class="container">
+          <div class="row">
+            <div id="yt_left" class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
+              <div class="yt-left-wrap">
+                <div class="block block-account">
+                  <div class="block-title">
+                    <strong> <span>My Account</span>
+                    </strong>
+                  </div>
+                  <div class="block-content">
+                    <ul>
+                      <li class="current"><strong>Account Dashboard</strong></li>
+                      <li><a href="#">Account Information</a></li>
+                      <li><a href="#">Address Book</a></li>
+                      <li><a href="#">My Orders</a></li>
+                      <li><a href="#">Billing Agreements</a></li>
+                      <li><a href="#/">My Wishlist</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-						<div id="yt_main" class="yt-main-right yt-main col-main col-lg-9 col-md-9 col-sm-8 col-xs-12">
-							<div class="yt_main_inner">
-								<div class="my-account">
-									<div class="dashboard">
-										<div class="page-title">
-											<h1>My Dashboard</h1>
-										</div>
-										<div class="welcome-msg">
-											<p class="hello">
-												<strong>Hello, ${users.firstname} ${users.lastname}!</strong>
-											</p>
-											<p>From your My Account Dashboard you have the ability to view a snapshot of your recent account activity
-												and update your account information. Select a link below to view or edit information.</p>
-										</div>
-										<div class="box-account box-recent">
-											<div class="box-head">
-												<h2>Recent Orders</h2>
-												<a href="http://demo.magentech.com/themes/sm_love_fashion/sales/order/history/">View All</a>
-											</div>
-											<table class="data-table" id="my-orders-table">
-												<thead>
-													<tr class="first last">
-														<th>Order #</th>
-														<th>Date</th>
-														<th>Ship To</th>
-														<th><span class="nobr">Order Total</span></th>
-														<th>Status</th>
-														<th>&nbsp;</th>
-													</tr>
-												</thead>
-												<tbody>
-													<tr class="first last odd">
-														<td>600000005</td>
-														<td><span class="nobr">5/15/2015</span></td>
-														<td>tien nguyen nhat</td>
-														<td><span class="price">$915.00</span></td>
-														<td><em>Pending</em></td>
-														<td class="a-center last"><span class="nobr"> <a
-																href="http://demo.magentech.com/themes/sm_love_fashion/sales/order/view/order_id/252/">View Order</a> <span
-																class="separator">|</span> <a
-																href="http://demo.magentech.com/themes/sm_love_fashion/sales/order/reorder/order_id/252/"
-																class="link-reorder">Reorder</a>
-														</span></td>
-													</tr>
-												</tbody>
-											</table>
-											<script type="text/javascript">decorateTable('my-orders-table')</script>
-										</div>
-										<div class="box-account box-info">
-											<div class="box-head">
-												<h2>Account Information</h2>
-											</div>
-											<div class="col2-set">
-											    <div class="box">
-													<div class="box-title">
-														<h3>Contact Information</h3>
-														<a href="/customer/account/update">Edit</a>
-													</div>
-													<div class="box-content">
-														<p>Name: ${users.lastname} ${users.firstname}<br> Email: ${users.email}<br> 
-														    <a href="/customer/account/update?changpass=1">ChangePassword</a>
-														</p>
-													</div>
-												</div>
-											</div>
-											<div class="col-2-set">
-                                                <div class="box">
-                                                    <div class="box-title">
-                                                        <h3>Address</h3>
-                                                         <a href="/customer/account/address">Manage Addresses</a>
-                                                    </div>
-                                                    <div class="box-content">
-                                                        <p>Address: ${users.address}<br> Phone: ${users.phone}</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-											<div class="col2-set">
-												<div class="box">
-                                                    <div class="box-title">
-                                                        <h3>Default Shipping Address</h3>
-                                                         <a href="/customer/account/address">Edit Addresses</a>
-                                                    </div>
-                                                    <div class="box-content">
-                                                        <p>Address: ${users.address}<br> Phone: ${users.phone}</p>
-                                                    </div>
-                                                </div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- END: Content -->
-		<!-- BEGIN: Footer -->
-		<jsp:include page="footer.jsp"></jsp:include>
-		<!-- END: Footer -->
-	</div>
+            <div id="yt_main" class="yt-main-right yt-main col-main col-lg-9 col-md-9 col-sm-8 col-xs-12">
+              <div class="yt_main_inner">
+                <div class="my-account">
+                  <div class="dashboard">
+                    <div class="page-title">
+                      <h1>My Dashboard</h1>
+                    </div>
+                    <div class="welcome-msg">
+                      <p class="hello">
+                        <strong>Hello, ${customer.firstname} ${customer.lastname}!</strong>
+                      </p>
+                      <p>From your My Account Dashboard you have the ability to view a snapshot of your recent account activity and update your account information. Select a link below to view or
+                        edit information.</p>
+                    </div>
+                    <div class="box-account box-recent">
+                      <div class="box-head">
+                        <h2>Recent Orders</h2>
+                        <a href="http://demo.magentech.com/themes/sm_love_fashion/sales/order/history/">View All</a>
+                      </div>
+                      <table class="data-table" id="my-orders-table">
+                        <thead>
+                          <tr class="first last">
+                            <th>Order #</th>
+                            <th>Date</th>
+                            <th>Ship To</th>
+                            <th><span class="nobr">Order Total</span></th>
+                            <th>Status</th>
+                            <th>&nbsp;</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr class="first last odd">
+                            <td>600000005</td>
+                            <td><span class="nobr">5/15/2015</span></td>
+                            <td>tien nguyen nhat</td>
+                            <td><span class="price">$915.00</span></td>
+                            <td><em>Pending</em></td>
+                            <td class="a-center last"><span class="nobr"> <a href="http://demo.magentech.com/themes/sm_love_fashion/sales/order/view/order_id/252/">View Order</a> <span
+                                class="separator">|</span> <a href="http://demo.magentech.com/themes/sm_love_fashion/sales/order/reorder/order_id/252/" class="link-reorder">Reorder</a>
+                            </span></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <script type="text/javascript">
+																							decorateTable('my-orders-table')
+																						</script>
+                    </div>
+                    <div class="box-account box-info">
+                      <div class="box-head">
+                        <h2>Account Information</h2>
+                      </div>
+                      <div class="col2-set">
+                        <div class="box">
+                          <div class="box-title">
+                            <h3>Contact Information</h3>
+                            <a href="/customer/account/update">Edit</a>
+                          </div>
+                          <div class="box-content">
+                            <p>
+                              Name: ${customer.lastname} ${customer.firstname}<br> Email: ${customer.email}<br> <a href="/customer/account/update?changPassword">ChangePassword</a>
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col2-set">
+                        <div class="box">
+                          <div class="box-title">
+                            <h3>Address Book</h3>
+                            <a href="http://demo.magentech.com/themes/sm_love_fashion/customer/address/">Manage Addresses</a>
+                          </div>
+                          <div class="box-content">
+                            <div class="col-1">
+                              <h4>Default Billing Address</h4>
+                              <c:if test="${not empty defaultBilling}">
+                                <address>
+                                  Name: ${defaultBilling.firstname} ${defaultBilling.lastname} </br> Address: ${defaultBilling.street}, ${defaultBilling.region} </br> Country: ${defaultBilling.country} </br> Phone:
+                                  ${defaultBilling.phone}
+                                </address>
+                                <p>
+                                  <a href="/customer/account/address/edit/id/${defaultBilling.entityId}">Change Billing Address</a>
+                                </p>
+                              </c:if>
+                            </div>
+                            <div class="col-2">
+                              <h4>Default Shipping Address</h4>
+                              <c:if test="${not empty defaultShipping}">
+                                <address>
+                                  Name: ${defaultShipping.firstname} ${defaultShipping.lastname} </br> Address: ${defaultShipping.street}, ${defaultShipping.region} </br> Country: ${defaultShipping.country} </br>
+                                  Phone: ${defaultShipping.phone}
+                                </address>
+                                <p>
+                                  <a href="/customer/account/address/edit/id/${defaultShipping.entityId}">Change Billing Address</a>
+                                </p>
+                              </c:if>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- END: Content -->
+      <!-- BEGIN: Footer -->
+      <jsp:include page="footer.jsp"></jsp:include>
+      <!-- END: Footer -->
+    </div>
 </body>
 </html>
