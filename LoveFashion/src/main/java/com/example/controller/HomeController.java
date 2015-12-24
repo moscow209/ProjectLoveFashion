@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.example.dto.CategoryModel;
 import com.example.entity.CatalogCategoryEntity;
@@ -17,11 +18,16 @@ public class HomeController {
 
 	@Autowired
 	private IProductSevice service;
+<<<<<<< HEAD
+=======
+	
+
+>>>>>>> origin/master
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
 	public String home(Model model) {
 		CategoryModel category = this.buildTreeCategory(0);
 		model.addAttribute("categories", category);
-		return "about";
+		return "list";
 	}
 
 	public CategoryModel buildTreeCategory(int parent) {

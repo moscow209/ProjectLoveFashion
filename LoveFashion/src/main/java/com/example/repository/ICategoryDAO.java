@@ -12,4 +12,6 @@ public interface ICategoryDAO extends DAO<CatalogCategoryEntity>{
 	public List<CatalogCategoryEntity> getCategoryByParent(Integer parent);
 	
 	public CatalogCategoryEntity getRootCategory();
+	
+	public CatalogCategoryEntity findCategoryByUrl(String urlPath);
 }

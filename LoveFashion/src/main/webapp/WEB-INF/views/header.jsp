@@ -218,7 +218,7 @@
                       </a></li>
 
                       <c:forEach var="level1" items="${categories.subCategories}">
-                        <li class="shop-item-parent other-toggle sm_megamenu_lv1  sm_megamenu_drop  parent"><a class="sm_megamenu_head  sm_megamenu_drop  " href="#"> <span
+                        <li class="shop-item-parent other-toggle sm_megamenu_lv1  sm_megamenu_drop  parent"><a class="sm_megamenu_head  sm_megamenu_drop  " href="/list/${level1.urlPath}"> <span
                             class="sm_megamenu_icon  sm_megamenu_nodesc"> <span class="sm_megamenu_title">${level1.name}</span>
                           </span>
                         </a>
@@ -236,7 +236,7 @@
                                     <div class="sm_megamenu_content">
                                       <ul class="list-cat">
                                         <c:forEach var="level3" items="${level2.subCategories}">
-                                          <li><a href="#" title="Cocktail">${level3.name}</a></li>
+                                          <li><a href="/list/${level3.urlPath}" title="Cocktail">${level3.name}</a></li>
                                         </c:forEach>
                                       </ul>
                                     </div>
@@ -306,13 +306,13 @@
                   <ul class="nav-menu  clearfix">
                     <li class="nav-home"><a class="nav-home" href="#" title="Home"><span>Home</span></a></li>
                     <c:forEach var="level1" items="${categories.subCategories}">
-                      <li class="level0  nav-2  parent" onmouseover="toggleMenu(this,1)" onmouseout="toggleMenu(this,0)"><a href="#"> <span>${level1.name}</span></a> 
+                      <li class="level0  nav-2  parent" onmouseover="toggleMenu(this,1)" onmouseout="toggleMenu(this,0)"><a href="/list/${level1.urlPath}"> <span>${level1.name}</span></a> 
                       <c:forEach var="level2" items="${level1.subCategories}" varStatus="lv2Status">
                          <ul class="level0">
-                            <li class="level1  nav-2-1  first  parent" onmouseover="toggleMenu(this,1)" onmouseout="toggleMenu(this,0)"><a href="#"> <span>${level2.name}</span></a>
+                            <li class="level1  nav-2-1  first  parent" onmouseover="toggleMenu(this,1)" onmouseout="toggleMenu(this,0)"><a href="/list/${level2.urlPath}"> <span>${level2.name}</span></a>
                                 <ul class="level1">
                                     <c:forEach var="level3" items="${level2.subCategories}">
-                                        <li class="level2  nav-2-1-1  first"><a href="#"> <span>${level3.name}</span>
+                                        <li class="level2  nav-2-1-1  first"><a href="/list/${level3.urlPath}"> <span>${level3.name}</span>
                                         </a></li>
                                     </c:forEach>
                                 </ul>

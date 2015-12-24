@@ -1,5 +1,5 @@
 package com.example.entity;
-// Generated Dec 19, 2015 11:20:12 PM by Hibernate Tools 4.3.1
+// Generated Dec 24, 2015 9:04:21 PM by Hibernate Tools 4.3.1
 
 import static javax.persistence.GenerationType.IDENTITY;
 
@@ -7,12 +7,15 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -29,7 +32,7 @@ public class CatalogCategoryEntity implements java.io.Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	private Integer entityId;
-	private int parentId;
+	private Integer parentId;
 	private Date createdAt;
 	private Date updatedAt;
 	private String path;
@@ -48,23 +51,22 @@ public class CatalogCategoryEntity implements java.io.Serializable {
 	private String thumbnail;
 	private String urlKey;
 	private String urlPath;
-	private Set<CatalogCategoryProduct> catalogCategoryProducts = new HashSet<CatalogCategoryProduct>(0);
+	private Set<CatalogProductEntity> catalogProductEntitys = new HashSet<CatalogProductEntity>(0);
 
 	public CatalogCategoryEntity() {
 	}
 
-	public CatalogCategoryEntity(int parentId, String path, int position, int level, int childrenCount) {
-		this.parentId = parentId;
+	public CatalogCategoryEntity(String path, int position, int level, int childrenCount) {
 		this.path = path;
 		this.position = position;
 		this.level = level;
 		this.childrenCount = childrenCount;
 	}
 
-	public CatalogCategoryEntity(int parentId, Date createdAt, Date updatedAt, String path, int position, int level,
+	public CatalogCategoryEntity(Integer parentId, Date createdAt, Date updatedAt, String path, int position, int level,
 			int childrenCount, String description, String image, Integer includeInMenu, Integer isActive,
 			String metaDescription, String metaKeywords, String metaTitle, String name, String nameEn, String thumbnail,
-			String urlKey, String urlPath, Set<CatalogCategoryProduct> catalogCategoryProducts) {
+			String urlKey, String urlPath, Set<CatalogProductEntity> catalogProductEntitys) {
 		this.parentId = parentId;
 		this.createdAt = createdAt;
 		this.updatedAt = updatedAt;
@@ -84,7 +86,7 @@ public class CatalogCategoryEntity implements java.io.Serializable {
 		this.thumbnail = thumbnail;
 		this.urlKey = urlKey;
 		this.urlPath = urlPath;
-		this.catalogCategoryProducts = catalogCategoryProducts;
+		this.catalogProductEntitys = catalogProductEntitys;
 	}
 
 	@Id
@@ -99,12 +101,12 @@ public class CatalogCategoryEntity implements java.io.Serializable {
 		this.entityId = entityId;
 	}
 
-	@Column(name = "parent_id", nullable = false)
-	public int getParentId() {
+	@Column(name = "parent_id")
+	public Integer getParentId() {
 		return this.parentId;
 	}
 
-	public void setParentId(int parentId) {
+	public void setParentId(Integer parentId) {
 		this.parentId = parentId;
 	}
 
@@ -272,13 +274,18 @@ public class CatalogCategoryEntity implements java.io.Serializable {
 		this.urlPath = urlPath;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "catalogCategoryEntity")
-	public Set<CatalogCategoryProduct> getCatalogCategoryProducts() {
-		return this.catalogCategoryProducts;
+	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinTable(name = "catalog_category_product", catalog = "lovefashion", joinColumns = { 
+			@JoinColumn(name = "category_id", nullable = false, updatable = false) }, 
+			inverseJoinColumns = { @JoinColumn(name = "product_id", 
+					nullable = false, updatable = false) })
+	public Set<CatalogProductEntity> getCatalogProductEntitys() {
+		return catalogProductEntitys;
 	}
 
-	public void setCatalogCategoryProducts(Set<CatalogCategoryProduct> catalogCategoryProducts) {
-		this.catalogCategoryProducts = catalogCategoryProducts;
+	public void setCatalogProductEntitys(
+			Set<CatalogProductEntity> catalogProductEntitys) {
+		this.catalogProductEntitys = catalogProductEntitys;
 	}
 
 }

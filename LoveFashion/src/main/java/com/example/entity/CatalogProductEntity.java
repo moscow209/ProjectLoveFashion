@@ -1,5 +1,5 @@
 package com.example.entity;
-// Generated Dec 23, 2015 9:57:00 PM by Hibernate Tools 4.3.1
+// Generated Dec 24, 2015 9:04:21 PM by Hibernate Tools 4.3.1
 
 import java.math.BigDecimal;
 import java.util.Date;
@@ -33,7 +33,7 @@ public class CatalogProductEntity implements java.io.Serializable {
 	private String typeId;
 	private String sku;
 	private Integer taxClassId;
-	private BigDecimal price;
+	private	double price;
 	private String material;
 	private String climate;
 	private String pattern;
@@ -61,6 +61,10 @@ public class CatalogProductEntity implements java.io.Serializable {
 	private String sizeValue;
 	private String image;
 	private String imageLabel;
+	private Short sale;
+	private BigDecimal specialPrice;
+	private Date specialFromDate;
+	private Date specialToDate;
 	private Set<SalesBestsellersAggregatedYearly> salesBestsellersAggregatedYearlies = new HashSet<SalesBestsellersAggregatedYearly>(
 			0);
 	private Set<CatalogProductEntity> catalogProductEntitiesForParentId = new HashSet<CatalogProductEntity>(0);
@@ -74,7 +78,7 @@ public class CatalogProductEntity implements java.io.Serializable {
 			0);
 	private Set<WishlistItem> wishlistItems = new HashSet<WishlistItem>(0);
 	private Set<CatalogProductEntity> catalogProductEntitiesForChildId = new HashSet<CatalogProductEntity>(0);
-	private Set<CatalogCategoryProduct> catalogCategoryProducts = new HashSet<CatalogCategoryProduct>(0);
+	private Set<CatalogCategoryEntity> catalogCategoryEntities = new HashSet<CatalogCategoryEntity>(0);
 	private Set<CataloginventoryStockItem> cataloginventoryStockItems = new HashSet<CataloginventoryStockItem>(0);
 
 	public CatalogProductEntity() {
@@ -86,11 +90,12 @@ public class CatalogProductEntity implements java.io.Serializable {
 	}
 
 	public CatalogProductEntity(int entityId, String name, String typeId, String sku, Integer taxClassId,
-			BigDecimal price, String material, String climate, String pattern, String collar, String sleeve,
+			double price, String material, String climate, String pattern, String collar, String sleeve,
 			String active, BigDecimal weight, Integer manufacturer, String manufacturerValue, String metaDescription,
 			String metaKeyword, String metaTitle, String description, String urlKey, String urlPath, Date createdAt,
 			Date updatedAt, Short isNew, Short status, Date newsFromDate, Date newsToDate, Integer color,
-			String colorValue, Integer size, String sizeValue, String image, String imageLabel,
+			String colorValue, Integer size, String sizeValue, String image, String imageLabel, Short sale,
+			BigDecimal specialPrice, Date specialFromDate, Date specialToDate,
 			Set<SalesBestsellersAggregatedYearly> salesBestsellersAggregatedYearlies,
 			Set<CatalogProductEntity> catalogProductEntitiesForParentId,
 			Set<SalesBestsellersAggregatedMonthly> salesBestsellersAggregatedMonthlies,
@@ -98,7 +103,7 @@ public class CatalogProductEntity implements java.io.Serializable {
 			Set<SalesBestsellersAggregatedDaily> salesBestsellersAggregatedDailies,
 			Set<CataloginventoryStockStatus> cataloginventoryStockStatuses, Set<WishlistItem> wishlistItems,
 			Set<CatalogProductEntity> catalogProductEntitiesForChildId,
-			Set<CatalogCategoryProduct> catalogCategoryProducts,
+			Set<CatalogCategoryEntity> catalogCategoryEntities,
 			Set<CataloginventoryStockItem> cataloginventoryStockItems) {
 		this.entityId = entityId;
 		this.name = name;
@@ -133,6 +138,10 @@ public class CatalogProductEntity implements java.io.Serializable {
 		this.sizeValue = sizeValue;
 		this.image = image;
 		this.imageLabel = imageLabel;
+		this.sale = sale;
+		this.specialPrice = specialPrice;
+		this.specialFromDate = specialFromDate;
+		this.specialToDate = specialToDate;
 		this.salesBestsellersAggregatedYearlies = salesBestsellersAggregatedYearlies;
 		this.catalogProductEntitiesForParentId = catalogProductEntitiesForParentId;
 		this.salesBestsellersAggregatedMonthlies = salesBestsellersAggregatedMonthlies;
@@ -141,7 +150,7 @@ public class CatalogProductEntity implements java.io.Serializable {
 		this.cataloginventoryStockStatuses = cataloginventoryStockStatuses;
 		this.wishlistItems = wishlistItems;
 		this.catalogProductEntitiesForChildId = catalogProductEntitiesForChildId;
-		this.catalogCategoryProducts = catalogCategoryProducts;
+		this.catalogCategoryEntities = catalogCategoryEntities;
 		this.cataloginventoryStockItems = cataloginventoryStockItems;
 	}
 
@@ -193,11 +202,11 @@ public class CatalogProductEntity implements java.io.Serializable {
 	}
 
 	@Column(name = "price", precision = 12, scale = 4)
-	public BigDecimal getPrice() {
+	public double getPrice() {
 		return this.price;
 	}
 
-	public void setPrice(BigDecimal price) {
+	public void setPrice(double price) {
 		this.price = price;
 	}
 
@@ -448,6 +457,44 @@ public class CatalogProductEntity implements java.io.Serializable {
 		this.imageLabel = imageLabel;
 	}
 
+	@Column(name = "sale")
+	public Short getSale() {
+		return this.sale;
+	}
+
+	public void setSale(Short sale) {
+		this.sale = sale;
+	}
+
+	@Column(name = "special_price", precision = 12, scale = 4)
+	public BigDecimal getSpecialPrice() {
+		return this.specialPrice;
+	}
+
+	public void setSpecialPrice(BigDecimal specialPrice) {
+		this.specialPrice = specialPrice;
+	}
+
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "special_from_date", length = 19)
+	public Date getSpecialFromDate() {
+		return this.specialFromDate;
+	}
+
+	public void setSpecialFromDate(Date specialFromDate) {
+		this.specialFromDate = specialFromDate;
+	}
+
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "special_to_date", length = 19)
+	public Date getSpecialToDate() {
+		return this.specialToDate;
+	}
+
+	public void setSpecialToDate(Date specialToDate) {
+		this.specialToDate = specialToDate;
+	}
+
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "catalogProductEntity")
 	public Set<SalesBestsellersAggregatedYearly> getSalesBestsellersAggregatedYearlies() {
 		return this.salesBestsellersAggregatedYearlies;
@@ -530,21 +577,22 @@ public class CatalogProductEntity implements java.io.Serializable {
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "catalogProductEntity")
-	public Set<CatalogCategoryProduct> getCatalogCategoryProducts() {
-		return this.catalogCategoryProducts;
-	}
-
-	public void setCatalogCategoryProducts(Set<CatalogCategoryProduct> catalogCategoryProducts) {
-		this.catalogCategoryProducts = catalogCategoryProducts;
-	}
-
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "catalogProductEntity")
 	public Set<CataloginventoryStockItem> getCataloginventoryStockItems() {
 		return this.cataloginventoryStockItems;
 	}
 
 	public void setCataloginventoryStockItems(Set<CataloginventoryStockItem> cataloginventoryStockItems) {
 		this.cataloginventoryStockItems = cataloginventoryStockItems;
+	}
+
+	@ManyToMany(fetch = FetchType.LAZY, mappedBy = "catalogProductEntitys")
+	public Set<CatalogCategoryEntity> getCatalogCategoryEntities() {
+		return catalogCategoryEntities;
+	}
+
+	public void setCatalogCategoryEntities(
+			Set<CatalogCategoryEntity> catalogCategoryEntities) {
+		this.catalogCategoryEntities = catalogCategoryEntities;
 	}
 
 }

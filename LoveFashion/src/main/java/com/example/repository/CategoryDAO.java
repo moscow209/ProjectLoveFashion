@@ -34,4 +34,12 @@ public class CategoryDAO extends AbstractDAO<CatalogCategoryEntity> implements
 				.createQuery("from CatalogCategoryEntity where level = 0");
 		return (CatalogCategoryEntity) query.uniqueResult();
 	}
+
+	public CatalogCategoryEntity findCategoryByUrl(String urlPath) {
+		// TODO Auto-generated method stub
+		Query query = getSession()
+				.createQuery("from CatalogCategoryEntity where urlPath=:urlPath");
+		query.setString("urlPath", urlPath);
+		return (CatalogCategoryEntity) query.uniqueResult();
+	}
 }
