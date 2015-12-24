@@ -1,16 +1,14 @@
 package com.example.entity;
-// Generated Dec 19, 2015 11:20:12 PM by Hibernate Tools 4.3.1
-
-import static javax.persistence.GenerationType.IDENTITY;
+// Generated Dec 24, 2015 9:04:21 PM by Hibernate Tools 4.3.1
 
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -24,12 +22,8 @@ import javax.persistence.TemporalType;
 @Table(name = "catalog_category_entity", catalog = "lovefashion")
 public class CatalogCategoryEntity implements java.io.Serializable {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 	private Integer entityId;
-	private int parentId;
+	private Integer parentId;
 	private Date createdAt;
 	private Date updatedAt;
 	private String path;
@@ -53,15 +47,14 @@ public class CatalogCategoryEntity implements java.io.Serializable {
 	public CatalogCategoryEntity() {
 	}
 
-	public CatalogCategoryEntity(int parentId, String path, int position, int level, int childrenCount) {
-		this.parentId = parentId;
+	public CatalogCategoryEntity(String path, int position, int level, int childrenCount) {
 		this.path = path;
 		this.position = position;
 		this.level = level;
 		this.childrenCount = childrenCount;
 	}
 
-	public CatalogCategoryEntity(int parentId, Date createdAt, Date updatedAt, String path, int position, int level,
+	public CatalogCategoryEntity(Integer parentId, Date createdAt, Date updatedAt, String path, int position, int level,
 			int childrenCount, String description, String image, Integer includeInMenu, Integer isActive,
 			String metaDescription, String metaKeywords, String metaTitle, String name, String nameEn, String thumbnail,
 			String urlKey, String urlPath, Set<CatalogCategoryProduct> catalogCategoryProducts) {
@@ -99,12 +92,12 @@ public class CatalogCategoryEntity implements java.io.Serializable {
 		this.entityId = entityId;
 	}
 
-	@Column(name = "parent_id", nullable = false)
-	public int getParentId() {
+	@Column(name = "parent_id")
+	public Integer getParentId() {
 		return this.parentId;
 	}
 
-	public void setParentId(int parentId) {
+	public void setParentId(Integer parentId) {
 		this.parentId = parentId;
 	}
 

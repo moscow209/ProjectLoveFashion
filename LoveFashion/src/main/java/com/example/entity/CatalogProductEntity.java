@@ -1,5 +1,5 @@
 package com.example.entity;
-// Generated Dec 23, 2015 9:57:00 PM by Hibernate Tools 4.3.1
+// Generated Dec 24, 2015 9:04:21 PM by Hibernate Tools 4.3.1
 
 import java.math.BigDecimal;
 import java.util.Date;
@@ -24,10 +24,6 @@ import javax.persistence.TemporalType;
 @Table(name = "catalog_product_entity", catalog = "lovefashion")
 public class CatalogProductEntity implements java.io.Serializable {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 	private int entityId;
 	private String name;
 	private String typeId;
@@ -61,6 +57,10 @@ public class CatalogProductEntity implements java.io.Serializable {
 	private String sizeValue;
 	private String image;
 	private String imageLabel;
+	private Short sale;
+	private BigDecimal specialPrice;
+	private Date specialFromDate;
+	private Date specialToDate;
 	private Set<SalesBestsellersAggregatedYearly> salesBestsellersAggregatedYearlies = new HashSet<SalesBestsellersAggregatedYearly>(
 			0);
 	private Set<CatalogProductEntity> catalogProductEntitiesForParentId = new HashSet<CatalogProductEntity>(0);
@@ -90,7 +90,8 @@ public class CatalogProductEntity implements java.io.Serializable {
 			String active, BigDecimal weight, Integer manufacturer, String manufacturerValue, String metaDescription,
 			String metaKeyword, String metaTitle, String description, String urlKey, String urlPath, Date createdAt,
 			Date updatedAt, Short isNew, Short status, Date newsFromDate, Date newsToDate, Integer color,
-			String colorValue, Integer size, String sizeValue, String image, String imageLabel,
+			String colorValue, Integer size, String sizeValue, String image, String imageLabel, Short sale,
+			BigDecimal specialPrice, Date specialFromDate, Date specialToDate,
 			Set<SalesBestsellersAggregatedYearly> salesBestsellersAggregatedYearlies,
 			Set<CatalogProductEntity> catalogProductEntitiesForParentId,
 			Set<SalesBestsellersAggregatedMonthly> salesBestsellersAggregatedMonthlies,
@@ -133,6 +134,10 @@ public class CatalogProductEntity implements java.io.Serializable {
 		this.sizeValue = sizeValue;
 		this.image = image;
 		this.imageLabel = imageLabel;
+		this.sale = sale;
+		this.specialPrice = specialPrice;
+		this.specialFromDate = specialFromDate;
+		this.specialToDate = specialToDate;
 		this.salesBestsellersAggregatedYearlies = salesBestsellersAggregatedYearlies;
 		this.catalogProductEntitiesForParentId = catalogProductEntitiesForParentId;
 		this.salesBestsellersAggregatedMonthlies = salesBestsellersAggregatedMonthlies;
@@ -446,6 +451,44 @@ public class CatalogProductEntity implements java.io.Serializable {
 
 	public void setImageLabel(String imageLabel) {
 		this.imageLabel = imageLabel;
+	}
+
+	@Column(name = "sale")
+	public Short getSale() {
+		return this.sale;
+	}
+
+	public void setSale(Short sale) {
+		this.sale = sale;
+	}
+
+	@Column(name = "special_price", precision = 12, scale = 4)
+	public BigDecimal getSpecialPrice() {
+		return this.specialPrice;
+	}
+
+	public void setSpecialPrice(BigDecimal specialPrice) {
+		this.specialPrice = specialPrice;
+	}
+
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "special_from_date", length = 19)
+	public Date getSpecialFromDate() {
+		return this.specialFromDate;
+	}
+
+	public void setSpecialFromDate(Date specialFromDate) {
+		this.specialFromDate = specialFromDate;
+	}
+
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "special_to_date", length = 19)
+	public Date getSpecialToDate() {
+		return this.specialToDate;
+	}
+
+	public void setSpecialToDate(Date specialToDate) {
+		this.specialToDate = specialToDate;
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "catalogProductEntity")
