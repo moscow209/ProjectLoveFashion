@@ -14,17 +14,17 @@ import com.example.entity.CatalogCategoryEntity;
 import com.example.service.IProductSevice;
 
 @Controller
-@SessionAttributes("categories")
 public class HomeController {
 
 	@Autowired
 	private IProductSevice service;
+	
 
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
 	public String home(Model model) {
 		CategoryModel category = this.buildTreeCategory(0);
 		model.addAttribute("categories", category);
-		return "about";
+		return "list";
 	}
 
 	public CategoryModel buildTreeCategory(int parent) {

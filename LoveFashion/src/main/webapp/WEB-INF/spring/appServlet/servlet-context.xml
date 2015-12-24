@@ -44,8 +44,6 @@
                 <beans:value>com.example.entity.AdminRule</beans:value>
                 <beans:value>com.example.entity.AdminUser</beans:value>
                 <beans:value>com.example.entity.CatalogCategoryEntity</beans:value>
-                <beans:value>com.example.entity.CatalogCategoryProduct</beans:value>
-                <beans:value>com.example.entity.CatalogCategoryProductId</beans:value>
                 <beans:value>com.example.entity.CataloginventoryStock</beans:value>
                 <beans:value>com.example.entity.CataloginventoryStockItem</beans:value>
                 <beans:value>com.example.entity.CataloginventoryStockStatus</beans:value>
