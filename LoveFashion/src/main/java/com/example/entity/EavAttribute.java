@@ -1,15 +1,13 @@
 package com.example.entity;
-// Generated Dec 19, 2015 11:20:12 PM by Hibernate Tools 4.3.1
-
-import static javax.persistence.GenerationType.IDENTITY;
+// Generated Dec 23, 2015 9:57:00 PM by Hibernate Tools 4.3.1
 
 import java.util.HashSet;
 import java.util.Set;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -25,10 +23,6 @@ import javax.persistence.UniqueConstraint;
 		"entity_type_id", "attribute_code" }) )
 public class EavAttribute implements java.io.Serializable {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 	private Short attributeId;
 	private EavEntityType eavEntityType;
 	private String attributeCode;
@@ -39,15 +33,7 @@ public class EavAttribute implements java.io.Serializable {
 	private String defaultValue;
 	private short isUnique;
 	private String note;
-	private Set<CatalogProductEntityVarchar> catalogProductEntityVarchars = new HashSet<CatalogProductEntityVarchar>(0);
-	private Set<CatalogProductEntityInt> catalogProductEntityInts = new HashSet<CatalogProductEntityInt>(0);
-	private Set<CatalogProductEntityDatetime> catalogProductEntityDatetimes = new HashSet<CatalogProductEntityDatetime>(
-			0);
 	private Set<EavAttributeOption> eavAttributeOptions = new HashSet<EavAttributeOption>(0);
-	private Set<CatalogProductEntityGallery> catalogProductEntityGalleries = new HashSet<CatalogProductEntityGallery>(
-			0);
-	private Set<CatalogProductEntityDecimal> catalogProductEntityDecimals = new HashSet<CatalogProductEntityDecimal>(0);
-	private Set<CatalogProductEntityText> catalogProductEntityTexts = new HashSet<CatalogProductEntityText>(0);
 
 	public EavAttribute() {
 	}
@@ -61,12 +47,7 @@ public class EavAttribute implements java.io.Serializable {
 
 	public EavAttribute(EavEntityType eavEntityType, String attributeCode, String backendType, String frontendInput,
 			String frontendLabel, short isRequired, String defaultValue, short isUnique, String note,
-			Set<CatalogProductEntityVarchar> catalogProductEntityVarchars,
-			Set<CatalogProductEntityInt> catalogProductEntityInts,
-			Set<CatalogProductEntityDatetime> catalogProductEntityDatetimes,
-			Set<EavAttributeOption> eavAttributeOptions, Set<CatalogProductEntityGallery> catalogProductEntityGalleries,
-			Set<CatalogProductEntityDecimal> catalogProductEntityDecimals,
-			Set<CatalogProductEntityText> catalogProductEntityTexts) {
+			Set<EavAttributeOption> eavAttributeOptions) {
 		this.eavEntityType = eavEntityType;
 		this.attributeCode = attributeCode;
 		this.backendType = backendType;
@@ -76,13 +57,7 @@ public class EavAttribute implements java.io.Serializable {
 		this.defaultValue = defaultValue;
 		this.isUnique = isUnique;
 		this.note = note;
-		this.catalogProductEntityVarchars = catalogProductEntityVarchars;
-		this.catalogProductEntityInts = catalogProductEntityInts;
-		this.catalogProductEntityDatetimes = catalogProductEntityDatetimes;
 		this.eavAttributeOptions = eavAttributeOptions;
-		this.catalogProductEntityGalleries = catalogProductEntityGalleries;
-		this.catalogProductEntityDecimals = catalogProductEntityDecimals;
-		this.catalogProductEntityTexts = catalogProductEntityTexts;
 	}
 
 	@Id
@@ -180,66 +155,12 @@ public class EavAttribute implements java.io.Serializable {
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "eavAttribute")
-	public Set<CatalogProductEntityVarchar> getCatalogProductEntityVarchars() {
-		return this.catalogProductEntityVarchars;
-	}
-
-	public void setCatalogProductEntityVarchars(Set<CatalogProductEntityVarchar> catalogProductEntityVarchars) {
-		this.catalogProductEntityVarchars = catalogProductEntityVarchars;
-	}
-
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "eavAttribute")
-	public Set<CatalogProductEntityInt> getCatalogProductEntityInts() {
-		return this.catalogProductEntityInts;
-	}
-
-	public void setCatalogProductEntityInts(Set<CatalogProductEntityInt> catalogProductEntityInts) {
-		this.catalogProductEntityInts = catalogProductEntityInts;
-	}
-
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "eavAttribute")
-	public Set<CatalogProductEntityDatetime> getCatalogProductEntityDatetimes() {
-		return this.catalogProductEntityDatetimes;
-	}
-
-	public void setCatalogProductEntityDatetimes(Set<CatalogProductEntityDatetime> catalogProductEntityDatetimes) {
-		this.catalogProductEntityDatetimes = catalogProductEntityDatetimes;
-	}
-
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "eavAttribute")
 	public Set<EavAttributeOption> getEavAttributeOptions() {
 		return this.eavAttributeOptions;
 	}
 
 	public void setEavAttributeOptions(Set<EavAttributeOption> eavAttributeOptions) {
 		this.eavAttributeOptions = eavAttributeOptions;
-	}
-
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "eavAttribute")
-	public Set<CatalogProductEntityGallery> getCatalogProductEntityGalleries() {
-		return this.catalogProductEntityGalleries;
-	}
-
-	public void setCatalogProductEntityGalleries(Set<CatalogProductEntityGallery> catalogProductEntityGalleries) {
-		this.catalogProductEntityGalleries = catalogProductEntityGalleries;
-	}
-
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "eavAttribute")
-	public Set<CatalogProductEntityDecimal> getCatalogProductEntityDecimals() {
-		return this.catalogProductEntityDecimals;
-	}
-
-	public void setCatalogProductEntityDecimals(Set<CatalogProductEntityDecimal> catalogProductEntityDecimals) {
-		this.catalogProductEntityDecimals = catalogProductEntityDecimals;
-	}
-
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "eavAttribute")
-	public Set<CatalogProductEntityText> getCatalogProductEntityTexts() {
-		return this.catalogProductEntityTexts;
-	}
-
-	public void setCatalogProductEntityTexts(Set<CatalogProductEntityText> catalogProductEntityTexts) {
-		this.catalogProductEntityTexts = catalogProductEntityTexts;
 	}
 
 }

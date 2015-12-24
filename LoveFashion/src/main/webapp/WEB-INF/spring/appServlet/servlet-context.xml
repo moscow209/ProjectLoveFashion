@@ -51,12 +51,8 @@
                 <beans:value>com.example.entity.CataloginventoryStockStatus</beans:value>
                 <beans:value>com.example.entity.CataloginventoryStockStatusId</beans:value>
                 <beans:value>com.example.entity.CatalogProductEntity</beans:value>
-                <beans:value>com.example.entity.CatalogProductEntityDatetime</beans:value>
-                <beans:value>com.example.entity.CatalogProductEntityDecimal</beans:value>
+                <beans:value>com.example.entity.Manufacturer</beans:value>
                 <beans:value>com.example.entity.CatalogProductEntityGallery</beans:value>
-                <beans:value>com.example.entity.CatalogProductEntityInt</beans:value>
-                <beans:value>com.example.entity.CatalogProductEntityText</beans:value>
-                <beans:value>com.example.entity.CatalogProductEntityVarchar</beans:value>
                 <beans:value>com.example.entity.CmsBlock</beans:value>
                 <beans:value>com.example.entity.CmsPage</beans:value>
                 <beans:value>com.example.entity.CoreConfigData</beans:value>
