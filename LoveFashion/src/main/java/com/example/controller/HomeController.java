@@ -18,11 +18,7 @@ public class HomeController {
 
 	@Autowired
 	private IProductSevice service;
-<<<<<<< HEAD
-=======
 	
-
->>>>>>> origin/master
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
 	public String home(Model model) {
 		CategoryModel category = this.buildTreeCategory(0);
